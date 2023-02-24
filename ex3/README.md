@@ -1,0 +1,1 @@
+# Exercise 3 - Global variables, arrays, and index registers
