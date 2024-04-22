@@ -934,7 +934,7 @@ class ClassPropertiesAndMethods(unittest.TestCase):
 
     # see thread python-dev/2002-October/029035.html
     def test_ex5_from_c3_switch(self):
-        # Testing ex5 from C3 switch discussion...
+        # Testing ex5_logical_instructions from C3 switch discussion...
         class A(object): pass
         class B(object): pass
         class C(object): pass

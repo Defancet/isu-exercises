@@ -1847,7 +1847,7 @@ class GrammarTests(unittest.TestCase):
         async def test2():
             return 22
         self.assertTrue(test2._marked)
-        self.assertEqual(test2.__name__, 'test2')
+        self.assertEqual(test2.__name__, 'test2_arrays')
         self.assertTrue(bool(test2.__code__.co_flags & inspect.CO_COROUTINE))
 
     def test_async_for(self):

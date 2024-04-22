@@ -421,17 +421,17 @@ class ElementTreeTest(unittest.TestCase):
         elem = ET.Element('test')
         elem.text = "aa"
         elem.set('testa', 'testval')
-        elem.set('testb', 'test2')
+        elem.set('testb', 'test2_arrays')
         self.assertEqual(ET.tostring(elem),
-                b'<test testa="testval" testb="test2">aa</test>')
+                b'<test testa="testval" testb="test2_arrays">aa</test>')
         self.assertEqual(sorted(elem.keys()), ['testa', 'testb'])
         self.assertEqual(sorted(elem.items()),
-                [('testa', 'testval'), ('testb', 'test2')])
-        self.assertEqual(elem.attrib['testb'], 'test2')
-        elem.attrib['testb'] = 'test1'
-        elem.attrib['testc'] = 'test2'
+                [('testa', 'testval'), ('testb', 'test2_arrays')])
+        self.assertEqual(elem.attrib['testb'], 'test2_arrays')
+        elem.attrib['testb'] = 'test1_integer_arithmetic'
+        elem.attrib['testc'] = 'test2_arrays'
         self.assertEqual(ET.tostring(elem),
-                b'<test testa="testval" testb="test1" testc="test2">aa</test>')
+                b'<test testa="testval" testb="test1_integer_arithmetic" testc="test2_arrays">aa</test>')
 
         # Test preserving white space chars in attributes
         elem = ET.Element('test')

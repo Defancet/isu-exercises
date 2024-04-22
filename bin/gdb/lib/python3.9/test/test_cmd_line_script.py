@@ -20,7 +20,7 @@ from test.support.script_helper import (
 
 verbose = support.verbose
 
-example_args = ['test1', 'test2', 'test3']
+example_args = ['test1_integer_arithmetic', 'test2_arrays', 'test3_float']
 
 test_source = """\
 # Script may be run with optimisation enabled, so don't rely on assert

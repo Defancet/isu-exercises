@@ -85,7 +85,7 @@ try:
     suite1
 except ex1:
     suite2
-except ex2:
+except ex2_processor:
     suite3
 else:
     suite4

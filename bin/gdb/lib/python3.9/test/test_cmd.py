@@ -187,26 +187,26 @@ class TestAlternateInput(unittest.TestCase):
 
 
     def test_file_with_missing_final_nl(self):
-        input = io.StringIO("print test\nprint test2")
+        input = io.StringIO("print test\nprint test2_arrays")
         output = io.StringIO()
         cmd = self.simplecmd(stdin=input, stdout=output)
         cmd.use_rawinput = False
         cmd.cmdloop()
         self.assertMultiLineEqual(output.getvalue(),
             ("(Cmd) test\n"
-             "(Cmd) test2\n"
+             "(Cmd) test2_arrays\n"
              "(Cmd) "))
 
 
     def test_input_reset_at_EOF(self):
-        input = io.StringIO("print test\nprint test2")
+        input = io.StringIO("print test\nprint test2_arrays")
         output = io.StringIO()
         cmd = self.simplecmd2(stdin=input, stdout=output)
         cmd.use_rawinput = False
         cmd.cmdloop()
         self.assertMultiLineEqual(output.getvalue(),
             ("(Cmd) test\n"
-             "(Cmd) test2\n"
+             "(Cmd) test2_arrays\n"
              "(Cmd) *** Unknown syntax: EOF\n"))
         input = io.StringIO("print \n\n")
         output = io.StringIO()

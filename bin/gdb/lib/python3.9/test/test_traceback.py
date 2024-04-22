@@ -544,7 +544,7 @@ class TracebackFormatTests(unittest.TestCase):
                 return True
 
         ex1 = UnhashableException('ex1')
-        ex2 = UnhashableException('ex2')
+        ex2 = UnhashableException('ex2_processor')
         try:
             raise ex2 from ex1
         except UnhashableException:
@@ -559,7 +559,7 @@ class TracebackFormatTests(unittest.TestCase):
         tb = stderr_f.getvalue().strip().splitlines()
         self.assertEqual(11, len(tb))
         self.assertEqual(context_message.strip(), tb[5])
-        self.assertIn('UnhashableException: ex2', tb[3])
+        self.assertIn('UnhashableException: ex2_processor', tb[3])
         self.assertIn('UnhashableException: ex1', tb[10])
 
 
@@ -1242,7 +1242,7 @@ class TestTracebackException(unittest.TestCase):
                 return True
 
         ex1 = UnhashableException('ex1')
-        ex2 = UnhashableException('ex2')
+        ex2 = UnhashableException('ex2_processor')
         try:
             raise ex2 from ex1
         except UnhashableException:
@@ -1252,7 +1252,7 @@ class TestTracebackException(unittest.TestCase):
                 exc_info = sys.exc_info()
         exc = traceback.TracebackException(*exc_info)
         formatted = list(exc.format())
-        self.assertIn('UnhashableException: ex2\n', formatted[2])
+        self.assertIn('UnhashableException: ex2_processor\n', formatted[2])
         self.assertIn('UnhashableException: ex1\n', formatted[6])
 
     def test_limit(self):

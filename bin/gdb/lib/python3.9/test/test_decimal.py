@@ -5743,7 +5743,7 @@ def test_main(arith=None, verbose=None, todo_tests=None, debug=None):
 
 if __name__ == '__main__':
     import optparse
-    p = optparse.OptionParser("test_decimal.py [--debug] [{--skip | test1 [test2 [...]]}]")
+    p = optparse.OptionParser("test_decimal.py [--debug] [{--skip | test1_integer_arithmetic [test2_arrays [...]]}]")
     p.add_option('--debug', '-d', action='store_true', help='shows the test number and context before each test')
     p.add_option('--skip',  '-s', action='store_true', help='skip over 90% of the arithmetic tests')
     (opt, args) = p.parse_args()

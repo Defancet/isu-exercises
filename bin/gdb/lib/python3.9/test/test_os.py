@@ -3403,11 +3403,11 @@ class ExtendedAttributeTests(unittest.TestCase):
         self.assertEqual(cm.exception.errno, errno.EEXIST)
 
         with self.assertRaises(OSError) as cm:
-            setxattr(fn, s("user.test2"), b"bye", os.XATTR_REPLACE, **kwargs)
+            setxattr(fn, s("user.test2_arrays"), b"bye", os.XATTR_REPLACE, **kwargs)
         self.assertEqual(cm.exception.errno, errno.ENODATA)
 
-        setxattr(fn, s("user.test2"), b"foo", os.XATTR_CREATE, **kwargs)
-        xattr.add("user.test2")
+        setxattr(fn, s("user.test2_arrays"), b"foo", os.XATTR_CREATE, **kwargs)
+        xattr.add("user.test2_arrays")
         self.assertEqual(set(listxattr(fn)), xattr)
         removexattr(fn, s("user.test"), **kwargs)
 
@@ -3417,7 +3417,7 @@ class ExtendedAttributeTests(unittest.TestCase):
 
         xattr.remove("user.test")
         self.assertEqual(set(listxattr(fn)), xattr)
-        self.assertEqual(getxattr(fn, s("user.test2"), **kwargs), b"foo")
+        self.assertEqual(getxattr(fn, s("user.test2_arrays"), **kwargs), b"foo")
         setxattr(fn, s("user.test"), b"a"*1024, **kwargs)
         self.assertEqual(getxattr(fn, s("user.test"), **kwargs), b"a"*1024)
         removexattr(fn, s("user.test"), **kwargs)

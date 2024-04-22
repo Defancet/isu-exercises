@@ -1878,8 +1878,8 @@ class TestCase(unittest.TestCase):
         class DataDerived(Base[int, T]):
             new_field: str
         Alias = DataDerived[str]
-        c = Alias(0, 'test1', 'test2')
-        self.assertEqual(astuple(c), (0, 'test1', 'test2'))
+        c = Alias(0, 'test1_integer_arithmetic', 'test2_arrays')
+        self.assertEqual(astuple(c), (0, 'test1_integer_arithmetic', 'test2_arrays'))
 
         class NonDataDerived(Base[int, T]):
             def new_method(self):

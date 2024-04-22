@@ -353,7 +353,7 @@ class PosixTester(unittest.TestCase):
         try:
             os.write(fd, b"xx")
             os.lseek(fd, 0, os.SEEK_SET)
-            n = os.pwritev(fd, [b'test1', b'tt2', b't3'], 2)
+            n = os.pwritev(fd, [b'test1_integer_arithmetic', b'tt2', b't3'], 2)
             self.assertEqual(n, 10)
 
             os.lseek(fd, 0, os.SEEK_SET)
@@ -368,7 +368,7 @@ class PosixTester(unittest.TestCase):
         try:
             os.write(fd,b"xx")
             os.lseek(fd, 0, os.SEEK_SET)
-            n = os.pwritev(fd, [b'test1', b'tt2', b't3'], 2, os.RWF_SYNC)
+            n = os.pwritev(fd, [b'test1_integer_arithmetic', b'tt2', b't3'], 2, os.RWF_SYNC)
             self.assertEqual(n, 10)
 
             os.lseek(fd, 0, os.SEEK_SET)
@@ -470,7 +470,7 @@ class PosixTester(unittest.TestCase):
     def test_writev(self):
         fd = os.open(support.TESTFN, os.O_RDWR | os.O_CREAT)
         try:
-            n = os.writev(fd, (b'test1', b'tt2', b't3'))
+            n = os.writev(fd, (b'test1_integer_arithmetic', b'tt2', b't3'))
             self.assertEqual(n, 10)
 
             os.lseek(fd, 0, os.SEEK_SET)
@@ -507,7 +507,7 @@ class PosixTester(unittest.TestCase):
             os.lseek(fd, 0, os.SEEK_SET)
             buf = [bytearray(i) for i in [5, 3, 2]]
             self.assertEqual(posix.readv(fd, buf), 10)
-            self.assertEqual([b'test1', b'tt2', b't3'], [bytes(i) for i in buf])
+            self.assertEqual([b'test1_integer_arithmetic', b'tt2', b't3'], [bytes(i) for i in buf])
 
             # Issue #20113: empty list of buffers should not crash
             try:
